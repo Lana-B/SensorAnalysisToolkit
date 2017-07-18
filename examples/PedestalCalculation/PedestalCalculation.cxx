@@ -29,6 +29,7 @@ int main(int argc, const char** argv){
 		std::cout<<"Only 16 bit is supported in this example"<<std::endl;
 		return 0;
 	}
+	std::cout<<"hello"<<std::endl;
 	//Variables to hold the input parameters
 	std::string filePath, fileNameAndFormat, outFileNameAndPath;
 	int startingframe, numOfFrames, rows, cols, framesize;

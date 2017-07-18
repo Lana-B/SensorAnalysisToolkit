@@ -21,7 +21,7 @@ struct FileType
 {
     enum Type
     {
-    	JPG, PNG
+    	JPG, PNG, ROOT
     };
 
     FileType() : t_(PNG) {}
@@ -40,6 +40,9 @@ private:
 			return osObject;
 		case FileType::PNG:
 			osObject << "PNG";
+			return osObject;
+		case FileType::ROOT:
+			osObject << "ROOT";
 			return osObject;
 		default:
 			return osObject;
@@ -75,8 +78,8 @@ public:
 	inline void SetGridX(const bool &gridX){ m_HistSetup.gridX = gridX;};
 
 	inline void SetStatBoxOptions( const int &statOptions ){ m_HistSetup.statOptions = statOptions; };
-
 	inline void SetOutputFileNameAndPath( const std::string &fileNameAndPath ){ m_HistSetup.ouputfileNameAndPath = fileNameAndPath; };
+
 
 	inline void SetOutputFileType( const FileType &extType ){ m_HistSetup.histFileType = extType; };
 
@@ -91,6 +94,7 @@ public:
 	void Generate2DHistogram( const std::shared_ptr< stk::Image<T_Pixeltype> >  imageToHistogram );
 
 	void SaveHistogram();
+	void SetRootFile(const std::string &outfileName);
 
 private:
 

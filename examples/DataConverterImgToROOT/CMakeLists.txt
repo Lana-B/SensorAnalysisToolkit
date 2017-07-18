@@ -6,7 +6,7 @@ set(CMAKE_MACOSX_RPATH 1)
 set(ROOT_DIR /Users/lb8075/ROOT64/root/cmake)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} /Users/lb8075/ROOT64/root/cmake/modules)
 
-set(PROJECT_NAME_STR PedestalWithHistExample)
+set(PROJECT_NAME_STR DataConverterImgToROOT)
 project(${PROJECT_NAME_STR})
 
 
@@ -28,7 +28,7 @@ set(STK_LIB_DIR $ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit_build/li
 include_directories(${COMMON_INCLUDES})
 include_directories(${ROOT_INCLUDE_DIRS})
 
-add_executable(${PROJECT_NAME_STR} ${PROJECT_RAW_IO_SOURCE}/examples/PedestalCalculationWithHistogram/PedestalCalculationWithHistogram.cxx)
+add_executable(${PROJECT_NAME_STR} ${PROJECT_RAW_IO_SOURCE}/examples/DataConverterImgToROOT/DataConverterImgToROOT.cxx)
 
 target_link_libraries(${PROJECT_NAME_STR} ${CMAKE_THREAD_LIBS_INIT})
 

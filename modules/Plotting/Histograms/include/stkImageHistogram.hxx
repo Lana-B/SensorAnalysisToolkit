@@ -14,6 +14,7 @@
 #include "TH2.h"
 #include "TH1.h"
 #include "TStyle.h"
+#include "TFile.h"
 
 namespace stk{
 
@@ -65,13 +66,23 @@ void ImageHistogram<T_Hist, T_Pixeltype>::Generate2DHistogram( const std::shared
 			m_HistSetup.numberOfYBins, m_HistSetup.ystart, m_HistSetup.yend) );
 
 	for( int irows = 0; irows < imageToHistogram->NumberOfRows(); irows++ ){
+		// std::cout<<"#rows: "<<imageToHistogram->NumberOfRows()<<std::endl;
 		for( int icols = 0; icols < imageToHistogram->NumberOfColumns(); icols++ ){
 			m_histogram->Fill( icols, irows, imageToHistogram->GetPixelAt(irows,icols) );
+			// if(icols%1000 == 0) std::cout<<"pixel"<<imageToHistogram->GetPixelAt(irows,icols)<<std::endl;
 		}
 	}
 
 }
 
+template< class T_Hist, typename T_Pixeltype >
+void ImageHistogram<T_Hist, T_Pixeltype>::SetRootFile(const std::string &outfileName){
+
+	TFile * fileRoot = new TFile((outfileName+".root").c_str(),"RECREATE");
+	m_histogram->SetDirectory(fileRoot);
+	std::cout<<"outfilename: "<<outfileName<<std::endl;
+
+}
 
 template<class T_Hist, typename T_Pixeltype>
 void ImageHistogram<T_Hist, T_Pixeltype>::SaveHistogram(){
@@ -94,6 +105,16 @@ void ImageHistogram<T_Hist, T_Pixeltype>::SaveHistogram(){
 
 	std::string tempName=m_HistSetup.ouputfileNameAndPath;
 
+	// if(FileType::ROOT){
+	// 	SetRootFile(tempName);
+
+	// }
+
+	// TFile * fileRoot = new TFile("outputfile.root","RECREATE");
+	// 		m_histogram->SetDirectory(fileRoot);
+	TFile * fileRoot = new TFile((tempName+".root").c_str(),"RECREATE");
+	m_histogram->SetDirectory(fileRoot);
+
 	switch(  m_HistSetup.histFileType()  ){
 		case FileType::JPG:
 			tempName += ".jpg";
@@ -104,12 +125,18 @@ void ImageHistogram<T_Hist, T_Pixeltype>::SaveHistogram(){
 			tempName += ".png";
 			img->WriteImage( tempName.c_str());
 			break;
+		case FileType::ROOT:
+			// tempName += ".root";
+			// m_histogram->Write( tempName.c_str());
+			m_histogram->Write("output");
+			break;
 		default:
 			break;
 	}
 
 	histCanvas.reset();
 	img.reset();
+	// fileRoot->Close();
 
 }
 
