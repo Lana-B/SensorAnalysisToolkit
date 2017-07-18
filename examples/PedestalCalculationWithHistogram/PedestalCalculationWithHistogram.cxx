@@ -36,7 +36,7 @@ int main(int argc, const char** argv){
 	//
 	std::stringstream inputs;
 	for(int iArg=1; iArg < argc; iArg++){
-		inputs << argv[iArg] << ' ';//get the argumnets
+		inputs << argv[iArg] << ' ';//get the arguments
 	}
 
 	inputs >> filePath >> fileNameAndFormat >> outFileNameAndPath >> startingframe >> numOfFrames >> rows >> cols;//write the parameters into setup

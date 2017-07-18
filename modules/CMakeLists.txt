@@ -6,7 +6,7 @@ set(CMAKE_MACOSX_RPATH 1)
 set(ROOT_DIR /Users/lb8075/ROOT64/root/cmake)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} /Users/lb8075/ROOT64/root/cmake/modules)
 
-project (SensorAnalysisToolKit)
+#project (SensorAnalysisToolKit)
 
 #set(PROJECT_RAW_IO_SOURCE $ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit)
 set(TEST_LIB_DIR $ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit_build/lib/)
