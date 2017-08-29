@@ -26,7 +26,7 @@ message(STATUS "base dir ${PROJECT_BASE_DIR}")
 set(PROJECT_BASE_DIR ${CMAKE_CURRENT_BINARY_DIR}/../SensorAnalysisToolkit)
 
 set(PROJECT_RAW_IO_SOURCE ${PROJECT_BASE_DIR})
-set(COMMON_INCLUDES ${PROJECT_RAW_IO_SOURCE}/modules/IO/RawIOImageStack/include ${PROJECT_RAW_IO_SOURCE}/modules/IO/RawIO/include ${PROJECT_RAW_IO_SOURCE}/modules/Base/ImageStack/include ${PROJECT_RAW_IO_SOURCE}/modules/Base/Image/include ${PROJECT_RAW_IO_SOURCE}/modules/ImageCalculations/ImageSum/include ${PROJECT_RAW_IO_SOURCE}/modules/ImageCalculations/ImageDivision/include ${PROJECT_RAW_IO_SOURCE}/modules/Plotting/Histograms/include )
+set(COMMON_INCLUDES /usr/local/Cellar/tbb/2017_U7/include/ ${PROJECT_RAW_IO_SOURCE}/modules/IO/RawIOImageStack/include ${PROJECT_RAW_IO_SOURCE}/modules/IO/RawIO/include ${PROJECT_RAW_IO_SOURCE}/modules/Base/ImageStack/include ${PROJECT_RAW_IO_SOURCE}/modules/Base/Image/include ${PROJECT_RAW_IO_SOURCE}/modules/ImageCalculations/ImageSum/include ${PROJECT_RAW_IO_SOURCE}/modules/ImageCalculations/ImageDivision/include ${PROJECT_RAW_IO_SOURCE}/modules/Plotting/Histograms/include)
 
 set(STK_LIB_DIR ${PROJECT_BASE_DIR}/../SensorAnalysisToolkit_Build/lib/)
 
