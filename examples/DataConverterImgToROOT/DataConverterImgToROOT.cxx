@@ -23,7 +23,7 @@
 
 int main(int argc, const char** argv){
 
-	int sizeOfImage = 4096;
+	int sizeOfImage = 1024;
 
 	//Check that the correct number of arguments have been passed
 
@@ -45,7 +45,7 @@ int main(int argc, const char** argv){
 
 
 	//Load image stack
-	std::unique_ptr<stk::IO<float> > myImageReader(new stk::IO<float>);//IO build according to pixel depth.
+	std::unique_ptr<stk::IO<float> > myImageReader(new stk::IO<float>);//IO build according to pixel depth. previously float
 
 	std::cout<<filePath+fileNameAndFormat<<std::endl;
 	
@@ -70,11 +70,11 @@ int main(int argc, const char** argv){
 
 		myImageHistogram.SetYAxisLog(false);
 		myImageHistogram.SetNumberOfYBins( sizeOfImage );
-		myImageHistogram.SetYLimits( -0.5, ((double)sizeOfImage-0.5 ));
+		myImageHistogram.SetYLimits( -0.5, ((float)sizeOfImage-0.5 ));
 
 		myImageHistogram.SetXAxisTitle( "Col" );
 		myImageHistogram.SetNumberOfXBins( sizeOfImage );
-		myImageHistogram.SetXLimits( -0.5, ((double)sizeOfImage-0.5)  );
+		myImageHistogram.SetXLimits( -0.5, ((float)sizeOfImage-0.5)  );
 
 		myImageHistogram.SetGridY(false);
 		myImageHistogram.SetGridX(false);
@@ -82,7 +82,7 @@ int main(int argc, const char** argv){
 		myImageHistogram.SetStatBoxOptions(0);
 
 		myImageHistogram.SetOutputFileNameAndPath(outFileNameAndPath);
-		myImageHistogram.SetOutputFileType( stk::FileType::ROOT );
+		myImageHistogram.SetOutputFileType( stk::FileType::PNG);
 
 		myImageHistogram.Generate2DHistogram( myImage );
 		// myImageHistogram.Generate2DHistogram( myResult );
