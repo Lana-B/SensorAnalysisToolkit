@@ -51,9 +51,9 @@ void ImageHistogram<T_Hist, T_Pixeltype>::GenerateHistogram( const std::shared_p
 
 	m_histogram.reset( new T_Hist( m_HistSetup.mainTitle.c_str() , m_HistSetup.mainTitle.c_str(),
 			m_HistSetup.numberOfXBins, m_HistSetup.xstart, m_HistSetup.xend) );
-
 	typename std::vector<T_Pixeltype>::iterator imageIt;
 	for( imageIt = imageToHistogram->StartImage(); imageIt != imageToHistogram->EndImage(); imageIt++ )
+
 		m_histogram->Fill( (*imageIt) );
 
 }
