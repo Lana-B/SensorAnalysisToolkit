@@ -20,6 +20,7 @@
 #include "stkImage.h"//will hold the result
 #include "stkImageSum.h"//used to sum the stack
 #include "stkImageDivision.h"//used to divide throgh to get final result
+#include "tbb/tbb.h"//threading lib
 
 int main(int argc, const char** argv){
 

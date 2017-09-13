@@ -62,7 +62,7 @@ std::shared_ptr< std::vector<T_datatype> > IOImageStack<T_datatype>::ReadImageSt
 
 					std::streampos fileSize = file.tellg(); //get the number of bytes in the file
 					std::cout<<"4"<<std::endl;
-				    // char *contents = new char [fileSize];
+				    char *contents = new char [2097152];
 				    // std::array<char,fileSize> buff;
 
 					m_totalSizeOfImageRead += fileSize; // Keep a record of the number of bytes that have been read in
@@ -71,18 +71,22 @@ std::shared_ptr< std::vector<T_datatype> > IOImageStack<T_datatype>::ReadImageSt
 					file.seekg(0, std::ios_base::beg); //Set the pointer back to start of the file
 
 					std::cout<<fileSize<<std::endl;
+					// fileSize=;
+
 					//The cast is needed to set the pixel data size
-					// if(iFrame==0){file.read(contents, fileSize); std::cout<<"6a"<<std::endl;} //read the data into the buffer.
-					// else{file.read(contents, fileSize);} //Start the next frame at the end of the last
+					if(iFrame==0){file.read(contents, fileSize); std::cout<<"6a"<<std::endl;} //read the data into the buffer.
+					else{file.read(contents, fileSize);} //Start the next frame at the end of the last
 
 					// file.read(reinterpret_cast<char *>(buff.data()), fileSize); std::cout<<"6a"<<std::endl; //read the data into the buffer.
 					// else{file.read(reinterpret_cast<char *>(buff.data()), fileSize);} //Start the next frame at the end of the last
 
+
 					// if(iFrame==0){file.read(reinterpret_cast<char *>(buff.data()), fileSize); std::cout<<"6a"<<std::endl;} //read the data into the buffer.
 					// else{file.read(reinterpret_cast<char *>(buff.data()), fileSize);} //Start the next frame at the end of the last
 
-					if(iFrame==0){file.read(reinterpret_cast<char *> (&(*bufferIterator)), fileSize); std::cout<<"7"<<std::endl;} //read the data into the buffer.
-					else{file.read(reinterpret_cast<char *> (&(*bufferIterator)), fileSize);} //Start the next frame at the end of the last
+					// fileSize=2097152;
+					// if(iFrame==0){file.read(reinterpret_cast<char *> (&(*bufferIterator)), fileSize); std::cout<<"7"<<std::endl;} //read the data into the buffer.
+					// else{file.read(reinterpret_cast<char *> (&(*bufferIterator)), fileSize);std::cout<<"7b"<<std::endl;} //Start the next frame at the end of the last
 
 					// if(iFrame==0){file.read(reinterpret_cast<char *> (&(*bufferIterator)), fileSize); std::cout<<"6a"<<std::endl;} //read the data into the buffer.
 					// else{file.read(reinterpret_cast<char *> (&(*bufferIterator)), fileSize);} //Start the next frame at the end of the last

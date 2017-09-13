@@ -20,7 +20,15 @@ add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/module
 add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/Base/Image)
 add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/Base/ImageStack)
 
-add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageSum)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageBadPixelAverage)
 add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageDivision)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageFlatFieldCorrection)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageMask)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageMinus)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageResize)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageSquare)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageSubtract)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageSum)
+add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/ImageCalculations/ImageVariance)
 
 add_subdirectory ($ENV{HOME}/Documents/Grating/Code/SensorAnalysisToolkit/modules/Plotting/Histograms)

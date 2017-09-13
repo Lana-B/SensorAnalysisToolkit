@@ -33,7 +33,8 @@
 int main(int argc, const char** argv){
 
 	if(argc != 16 ){
-			std::cout<<"Usage: BadPixelRemoval [PEDFILEPATH] [PEDFILENAMEANDFORMAT] [OUTPUTFILENAMEANDPATH]  [LIGHTFILEPATH] [LIGHTFILENAMEANDFORMAT] [FILEPATH] [FILENAMEANDFORMAT] [ROWS] [COLS] [STARTINGFRAME] [NUMBEROFFILES]"<<std::endl;
+			std::cout<<"args provided = "<<argc<<std::endl;
+			std::cout<<"Usage: FlatFieldCorrection [PEDFILEPATH] [PEDFILENAMEANDFORMAT] [OUTPUTFILENAMEANDPATH]  [LIGHTFILEPATH] [LIGHTFILENAMEANDFORMAT] [FILEPATH] [FILENAMEANDFORMAT] [ROWS] [COLS] [STARTINGFRAME] [NUMBEROFFRAMES] [PEDSTARTFRAME] [PEDNUMOFFRAMES] [LIGHTSTARTINGFRAME] [LIGHTNUMOFFRAMES]"<<std::endl;
 			std::cout<<"Only 16 bit is supported in this example"<<std::endl;
 			return 0;
 		}
@@ -112,27 +113,29 @@ int main(int argc, const char** argv){
 	 *
 	 *
 	 */
+ 	int sizeOfImage = 1024;
+
 
 	//Image to hold pedestal
-	std::shared_ptr< stk::Image<float> > myPedestal ( new stk::Image<float>(4096,4096) );
+	std::shared_ptr< stk::Image<float> > myPedestal ( new stk::Image<float>(sizeOfImage,sizeOfImage) );
 
 	//Image to hold variance
-	std::shared_ptr<stk::Image<float> > myVarianceImage ( new stk::Image<float>(4096,4096) );
+	std::shared_ptr<stk::Image<float> > myVarianceImage ( new stk::Image<float>(sizeOfImage,sizeOfImage) );
 
 	//Image to hold mask
-	std::shared_ptr<stk::Image<bool> > myMaskImage ( new stk::Image<bool>(4096,4096) );
+	std::shared_ptr<stk::Image<bool> > myMaskImage ( new stk::Image<bool>(sizeOfImage,sizeOfImage) );
 
 	//Image to hold result
-	std::shared_ptr<stk::Image<float> > myResult (new stk::Image<float>(4096,4096));
+	std::shared_ptr<stk::Image<float> > myResult (new stk::Image<float>(sizeOfImage,sizeOfImage));
 
 	//Image to hold gain
-	std::shared_ptr<stk::Image<float> > myGain (new stk::Image<float>(4096,4096));
+	std::shared_ptr<stk::Image<float> > myGain (new stk::Image<float>(sizeOfImage,sizeOfImage));
 
 	//Image to hold resized result
 	std::shared_ptr<stk::Image<float> > myResultResize (new stk::Image<float>(1024,1024));
 
 
-	std::shared_ptr<stk::Image<float> > myNumMask(new stk::Image<float>(4096,4096));
+	std::shared_ptr<stk::Image<float> > myNumMask(new stk::Image<float>(sizeOfImage,sizeOfImage));
 
 
 	/*
@@ -165,7 +168,7 @@ int main(int argc, const char** argv){
 
 
 	//remove ped from image stack
-	myMinus.MinusImage(myImageStack, myPedestal, myResult);
+	myMinus.MinusImage(myImageStack, myPedestal, myResult,100,10);
 
 	//sum the stack
 

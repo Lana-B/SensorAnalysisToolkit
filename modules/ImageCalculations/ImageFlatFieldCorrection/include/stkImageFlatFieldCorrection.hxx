@@ -22,13 +22,13 @@ ImageFlatFieldCorrection::~ImageFlatFieldCorrection(){}
 
 template< typename T_PixelInputType, typename T_PixelOutputType>
 void ImageFlatFieldCorrection::CorrectImage(std::shared_ptr<stk::ImageStack<T_PixelInputType> > lightStack, std::shared_ptr<stk::Image<T_PixelOutputType> > pedImage, std::shared_ptr<stk::Image<T_PixelOutputType> > rawImage, std::shared_ptr<stk::Image<T_PixelOutputType> > gainImage){
-
+ 	
 
 
 	/*
 	 * Prepare the light image
 	 */
-	std::shared_ptr< stk::Image<float> > lightImage ( new stk::Image<float>(4096,4096) );
+	std::shared_ptr< stk::Image<float> > lightImage ( new stk::Image<float>(1024,1024) );
 
 	stk::ImageSum summer;
 	stk::ImageDivision divider;

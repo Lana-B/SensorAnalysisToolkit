@@ -10,7 +10,7 @@
 
 #include "stkImage.h"
 #include "stkImageStack.h"
-#include "tbb/tbb.h"
+//#include "tbb/tbb.h"
 /**
  * \class ImageSum
  * \brief Class to take a stack of images sum them and write the result to a image.
